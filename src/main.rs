@@ -5,4 +5,5 @@ mod extra;
 fn main() {
     main_runner::start_main_menu();
     everything_checker::eula_checker();
+    everything_checker::php_checker();
 }
