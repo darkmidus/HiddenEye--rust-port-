@@ -1,9 +1,10 @@
 #[path = "extra.rs"] mod extra;
 use std::fs::File;
 use std::io::Write;
-use std::process::{exit, Command, Stdio};
+use std::process::exit;
 use serde_json::de::from_reader;
 use colored::Colorize;
+use online::sync::check;
 
 pub fn eula_checker() {
     // Opens the Eula and gets the eula value
@@ -47,21 +48,6 @@ pub fn eula_checker() {
 
 }
 
-pub fn php_checker() {
-    let output = Command::new("dpkg")
-        .arg("-s")
-        .arg("php")
-        .output()
-        .expect("Failed to execute.");
-    
-    let string_output = String::from_utf8_lossy(&output.stderr);
-
-    if string_output.contains("is not installed") {
-        println!("Php is not installed.")
-    }
-    else {
-        println!("Php is installed")
-    }
-
-
+pub fn connection_checker() {
+    println!("Internet Connection: {}", check(None).is_ok());
 }
