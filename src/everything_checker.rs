@@ -49,5 +49,24 @@ pub fn eula_checker() {
 }
 
 pub fn connection_checker() {
-    println!("Internet Connection: {}", check(None).is_ok());
+    let connection_indicator = check(None).is_ok();
+    if connection_indicator == true {
+        
+    }
+    else if connection_indicator == false {
+        println!("Please verify your internet connection. Most of HiddenEyes features will not work without a stable internet connection.");
+        println!("Would you like to continue? (y/n)");
+        let connection_answer = extra::hidden_input();
+        if connection_answer == "y" {
+            
+        }
+        else if connection_answer == "n" {
+            exit(1);
+        }
+
+    }
+    else {
+        println!("Error: The connection checker has failed to check your connection");
+    }
+
 }
