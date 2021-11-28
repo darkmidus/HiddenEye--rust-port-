@@ -44,8 +44,6 @@ pub fn eula_checker() {
     else {
         println!("Your json file is corrupted, please replace it.")
     }
-
-
 }
 
 pub fn connection_checker() {
@@ -68,5 +66,4 @@ pub fn connection_checker() {
     else {
         println!("Error: The connection checker has failed to check your connection");
     }
-
 }
